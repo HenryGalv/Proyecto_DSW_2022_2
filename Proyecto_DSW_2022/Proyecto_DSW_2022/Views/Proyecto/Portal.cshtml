@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Proyecto_DSW_2022.Models.Producto>
+
+@{
+    ViewData["Title"] = "Portal";
+}
+
+<h1>CATALOGO</h1>
+    <section class="d-flex flex-wrap justify-content-center gap-3 text-center">
+                @foreach (var item in Model)
+                {
+                    <div class="card" style="width: 18rem;">
+                        <img src="@Url.Content($"~/imagenes/{item.id}.jpg")" class="card-img-top" alt="imagen producto">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
+                            <p class="card-text">S/ @Html.DisplayFor(modelItem => item.precio)</p>
+                            @Html.ActionLink("Detalles", "Detalle", new { id=item.id }, new { @class = "btn btn-primary" }) 
+                            <a href="#" class="btn btn-success">Agregar a Carrito</a>
+                        </div>
+                    </div>               
+                           
+                }
+   </section>
+
+
+
+
+
+
+
+
+
